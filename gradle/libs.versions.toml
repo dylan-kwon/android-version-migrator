@@ -12,6 +12,7 @@ datastore = "1.1.1"
 truth = "1.4.4"
 mockk = "1.13.12"
 kotlinx-coroutines = "1.9.0-RC"
+versionMigrator = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,6 +33,7 @@ datastore-preferences = { group = "androidx.datastore", name = "datastore-prefer
 truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+dylan-kwon-versionMigrator = { group = "dylan.kwon", name = "version-migrator-android", version.ref = "versionMigrator" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
