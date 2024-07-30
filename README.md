@@ -28,9 +28,7 @@ dependencyResolutionManagement {
 ```
 
 ```kotlin
-implementation("dylan.kwon:version-migrator-android:$version") {
-    
-}
+implementation("dylan.kwon:version-migrator-android:$version")
 ```
 
 ## How To Use
