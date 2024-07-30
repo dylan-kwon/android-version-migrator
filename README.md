@@ -17,13 +17,20 @@ dependencyResolutionManagement {
     ..
     repositories {
         ..
-        maven("https://maven.pkg.github.com/dylan-kwon/android-version-migrator")
+        maven("https://maven.pkg.github.com/dylan-kwon/android-version-migrator") {
+            credentials {
+                username = INPUT-YOUR-USER-NAME
+                password = INPUT-YOUR-GITHUB-TOKEN
+            }
+        }
     }
 }
 ```
 
 ```kotlin
-implementation("dylan.kwon:version-migrator-android:$version")
+implementation("dylan.kwon:version-migrator-android:$version") {
+    
+}
 ```
 
 ## How To Use
