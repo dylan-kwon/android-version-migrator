@@ -102,5 +102,5 @@ Next is the flowchart provided by the library for the `SequentialVersionMigrator
 
 ## License
 
-This project is licensed under the Apache License, Version 2.0. - see the [LICENSE](app/LICENSE.txt)
+This project is licensed under the Apache License, Version 2.0. - see the [LICENSE](LICENSE.txt)
 file for details.
