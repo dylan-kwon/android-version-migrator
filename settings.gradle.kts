@@ -33,7 +33,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "VersionMigrator"
+rootProject.name = "android-version-migrator"
 
 include(":sample")
 include(":version-migrator")
