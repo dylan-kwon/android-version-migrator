@@ -29,7 +29,7 @@ jobs:
           cache: gradle
 
       - name: Set up Android SDK (Only on Act)
-        if: success() && ${{ env.ACT }}
+        if: ${{ success() && env.ACT }}
         uses: android-actions/setup-android@v3
 
       - name: Publish
