@@ -1,9 +1,10 @@
+import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.konan.properties.loadProperties
 
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("maven-publish")
+    alias(libs.plugins.vanniktech.maven.publish)
 }
 
 android {
@@ -23,41 +24,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
-    }
 }
-
-publishing {
-    val publishProperties = loadProperties(
-        rootProject.file("publish.properties").path
-    )
-    val versionProperties = loadProperties(
-        rootProject.file("version.properties").path
-    )
-    repositories {
-        maven(publishProperties["githubRepoUrl"].toString()) {
-            credentials {
-                username = publishProperties["githubUserName"].toString()
-                password = publishProperties["githubToken"].toString()
-            }
-        }
-    }
-    publications {
-        register<MavenPublication>(name) {
-            groupId = publishProperties["groupId"].toString()
-            artifactId = publishProperties["artifactId"].toString()
-            version = versionProperties["versionName"].toString()
-
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
-    }
-}
-
 
 dependencies {
     implementation(libs.datastore.preferences)
@@ -67,4 +34,52 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.junit)
+}
+
+mavenPublishing {
+    val publishProperties = loadProperties(
+        rootProject.file("publish.properties").path
+    )
+
+    val versionProperties = loadProperties(
+        rootProject.file("version.properties").path
+    )
+
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+    signAllPublications()
+
+    coordinates(
+        groupId = publishProperties["groupId"].toString(),
+        artifactId = publishProperties["artifactId"].toString(),
+        version = versionProperties["versionName"].toString()
+    )
+
+    pom {
+        name = publishProperties["artifactId"].toString()
+        description = publishProperties["description"].toString()
+        url = publishProperties["repository"].toString()
+
+        licenses {
+            license {
+                name = publishProperties["licenseName"].toString()
+                url = publishProperties["licenseUrl"].toString()
+            }
+        }
+
+        developers {
+            developer {
+                id = publishProperties["developerId"].toString()
+                name = publishProperties["developerName"].toString()
+                email = publishProperties["developerEmail"].toString()
+                url = publishProperties["developerUrl"].toString()
+            }
+        }
+
+        scm {
+            url = this@pom.url
+            connection = publishProperties["scmConnection"].toString()
+            developerConnection = publishProperties["scmDeveloperConnection"].toString()
+        }
+    }
 }

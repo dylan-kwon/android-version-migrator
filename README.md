@@ -1,3 +1,5 @@
+![Maven Central Version](https://img.shields.io/maven-central/v/io.github.dylan-kwon/version-migrator-android)
+
 # Android Version Migrator
 
 Android Version Migrator is a utility that allows you to define and execute the necessary logic
@@ -13,22 +15,7 @@ logic written by the developer and ensures that it is not executed multiple time
 ## Install
 
 ```kotlin
-dependencyResolutionManagement {
-    ..
-    repositories {
-        ..
-        maven("https://maven.pkg.github.com/dylan-kwon/android-version-migrator") {
-            credentials {
-                username = INPUT_YOUR_GITHUB_USER_NAME
-                password = INPUT_YOUR_GITHUB_TOKEN
-            }
-        }
-    }
-}
-```
-
-```kotlin
-implementation("dylan.kwon:version-migrator-android:$version")
+implementation("io.github.dylan-kwon:version-migrator-android:$version")
 ```
 
 ## How To Use

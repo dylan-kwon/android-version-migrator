@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "dylan.kwon.versionmigrator.sample"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "dylan.kwon.versionmigrator.sample"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 12
         versionName = "1.0"
 

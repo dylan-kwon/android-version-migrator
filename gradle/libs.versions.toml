@@ -12,7 +12,8 @@ datastore = "1.1.1"
 truth = "1.4.4"
 mockk = "1.13.13"
 kotlinx-coroutines = "1.9.0"
-versionMigrator = "1.0.0"
+vanniktechMavenPublish = "0.30.0"
+versionMigrator = "1.0.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -33,11 +34,11 @@ datastore-preferences = { group = "androidx.datastore", name = "datastore-prefer
 truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
-dylan-kwon-versionMigrator = { group = "dylan.kwon", name = "version-migrator-android", version.ref = "versionMigrator" }
+dylan-kwon-versionMigrator = { group = "io.github.dylan-kwon", name = "version-migrator-android", version.ref = "versionMigrator" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-
+vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPublish" }
